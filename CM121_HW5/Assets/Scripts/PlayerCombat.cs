@@ -22,7 +22,7 @@ public class PlayerCombat : MonoBehaviour
             GameObject currentProjectile = Instantiate(projectile, emergePoint.position, emergePoint.rotation);
             currentProjectile.GetComponent<Rigidbody>().AddForce(currentProjectile.transform.forward * projectileForce);
             timeSinceShot = 0f;
-            cannon.GetComponent<Animator>().SetTrigger("Cannon_Shoot");
+            cannon.GetComponent<Animator>().Play("Cannon_Shoot");
         } else {
             timeSinceShot += Time.deltaTime;
         }
