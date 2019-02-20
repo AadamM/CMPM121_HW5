@@ -10,6 +10,8 @@ public class CharacterMovement : MonoBehaviour {
 
     public float customGravity;
 
+    public GameObject cannon;
+
     private CharacterController _charCon;
     private Vector3 _moveDir;
     private Camera _mainCam;
@@ -43,6 +45,13 @@ public class CharacterMovement : MonoBehaviour {
 
         _horLook = Input.GetAxis("Mouse X");
         _verLook = Input.GetAxis("Mouse Y");
+
+        /*
+        if (_forDir > 0f) {
+            cannon.GetComponent<Animation>().Play();
+        } else {
+            cannon.GetComponent<Animation>().Stop();
+        }*/
 
         transform.Rotate(new Vector3(0f, _horLook * lookSens * Time.deltaTime, 0f));
         _mainCam.transform.Rotate(new Vector3(-(_verLook * lookSens * Time.deltaTime), 0f, 0f));
